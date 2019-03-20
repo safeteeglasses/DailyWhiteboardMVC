@@ -25,7 +25,7 @@ public class JdbcProblemDao implements ProblemDao{
 	public List<Problem> randomEasyProblems(int randomId) {
 		List<Problem> easyProblem = new ArrayList<Problem>();
 			String sqlGetEasyProblem = "Select * From problems where problem_id = ?";
-			randomId = (int) (Math.floor(Math.random() * 5) + 1);
+			randomId = (int) (Math.floor(Math.random() * 7) + 1);
 			SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetEasyProblem,randomId);
 			while (results.next()) {
 				easyProblem.add(mapRowToEasyProblem(results));

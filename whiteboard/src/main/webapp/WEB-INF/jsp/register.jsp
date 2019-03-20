@@ -10,13 +10,13 @@
         <form:errors path="username" cssClass="bg-danger"/>
     </div>
     <div>
-            <label for="email">Email </label>
-			<form:input  path="email" class="form-control"/>            
+            <label for="email">Email</label>
+			<form:input  path="email" class="form-control" placeholder="Valid@email.com"/>            
         	<form:errors path="email" cssClass="error"/>
         	<form:errors path="emailMatching" cssClass="error"/>
         </div>
         <div>
-            <label for="verifyEmail">Confirm Email *</label>
+            <label for="verifyEmail">Confirm Email</label>
             <form:input  path="verifyEmail" class="form-control"/>
             <form:errors path="verifyEmail" cssClass="error"/>
         </div>
@@ -41,7 +41,7 @@
         <div class="radio">
             <label>
                 <form:radiobutton path="role" value="user" checked="checked"/>
-                User
+                Junior Developer 
             </label>
         </div>
         <div class="radio">
