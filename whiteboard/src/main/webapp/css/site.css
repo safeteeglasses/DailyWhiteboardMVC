@@ -13,6 +13,8 @@ body {
 }
 textarea {
 		vertical-align: middle;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		padding-left: 10px;
 		background: none;
 		border: none;
@@ -26,7 +28,7 @@ textarea {
 #blackboard {
 		position: relative;
 		font-color: white;
-		width: 640px;
+		width: 850px;
 		margin: 7% auto;
 		border: tan solid 12px;
 		border-top: #bda27e solid 12px;
