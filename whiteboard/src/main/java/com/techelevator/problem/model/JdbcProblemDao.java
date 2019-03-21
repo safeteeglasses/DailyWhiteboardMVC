@@ -25,18 +25,32 @@ public class JdbcProblemDao implements ProblemDao{
 	public List<Problem> randomEasyProblems(int randomId) {
 		List<Problem> easyProblem = new ArrayList<Problem>();
 			String sqlGetEasyProblem = "Select * From problems where problem_id = ?";
-			randomId = (int) (Math.floor(Math.random() * 7) + 1);
+			randomId = (int) (Math.floor(Math.random() * easyCount()) + 1);
 			SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetEasyProblem,randomId);
 			while (results.next()) {
 				easyProblem.add(mapRowToEasyProblem(results));
 			}
 			return easyProblem;
 	}
+	public int easyCount(){
+		int count=0;
+		String sqlGetCount = "Select Count(*) AS problem_count From problems";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCount);
+		if(results.next()) {
+			count = results.getInt("problem_count");
+		}
+		return count;
+	}
 	private Problem mapRowToEasyProblem(SqlRowSet results) {
 		Problem p = new Problem();
 		p.setProblemId(results.getInt("problem_id"));
 		p.setName(results.getString("problem"));
 		p.setDifficulty(results.getInt("difficulty"));
+		return p;
+	}
+	private Problem mapRowToCount(SqlRowSet results) {
+		Problem p = new Problem();
+		p.setCount(results.getInt("problem_count"));
 		return p;
 	}
 	@Override
